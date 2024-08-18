@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitchen Feed</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Kitchen Feed</h1>
+        <h3>See what others are cooking today!</h3>
+    </header>
+    <br><br>
+
+    <div class="container">
+        {% for recipe in recipes %}
+        <div class="post">
+            <h2>{{ recipe['recipe_title'] }}</h2>
+            <p><strong>Posted by:</strong> {{ recipe['display_name'] }}</p>
+            <p><strong>Ingredients:</strong> {{ recipe['ingredients'] }}</p>
+            <p><strong>Recipe:</strong> {{ recipe['recipe'] }}</p>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+
+    <footer>
+        <a href="{{ url_for('home') }}">Back to Home</a>
+    </footer>
+</body>
+</html>
