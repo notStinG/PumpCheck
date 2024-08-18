@@ -11,13 +11,13 @@
     <h3>Have you gotten your daily pump?</h3>
   </header>
   <br><br>
-  <form>
+  <form method="POST" action="{{ url_for('workoutpost') }}">
     <label for="workout_title">Enter Workout Title: </label>
     <input type="text" name="workout_title" required><br><br>
     <label for="favourite">Favourite workout today: </label>
     <input type="text" name="favourite" required><br><br>
     <label for="routine">Workouts done today: </label>
-    <input type="textarea" name="routine" required>
+    <textarea name="routine" required></textarea>
     <br><br>
     <input type="submit" value="Post!">
   </form>
