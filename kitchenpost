@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Pumpcheck</title>
+</head>
+<body>
+  <header>
+    <h1>PumpCheck</h1>
+    <h3>Have you gotten your daily pump?</h3>
+  </header>
+  <br><br>
+  <form>
+    <label for="recipetitle">Enter Recipe Name: </label>
+    <input type="text" name="recipetitle" required><br><br>
+    <label for="ingredientlist">Ingredient list: </label>
+    <input type="textarea" name="ingredientlist" required><br><br>
+    <label for="recipe">Full recipe: </label>
+    <input type="textarea" name="recipe" required>
+    <br><br>
+    <input type="submit" value="Post!">
+  </form>
+</body>
+</html>
