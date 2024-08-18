@@ -1,0 +1,61 @@
+from flask import Flask, render_template, url_for, request, redirect, session
+import sqlite3
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return render_template("home.html")
+
+@app.route("/redirect", methods=["POST"])
+def check_login():
+    return redirect(url_for("login"))
+
+@app.route("/feed")
+def feed():
+    return render_template("feed.html")
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        username = request.form['username']
+        password = request.form['password']
+
+        conn = get_db_connection()
+        user = conn.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password)).fetchone()
+        conn.close()
+
+        if user:
+            session['username'] = user['username']
+            return redirect(url_for('feed'))
+        else:
+            return "Invalid username or password!"
+
+    return render_template("loginpage.html")
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        try:
+            conn = get_db_connection()
+            conn.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('login'))
+        except sqlite3.IntegrityError:
+            return "Username already exists!"
+
+    return render_template("register.html")
+
+
+@app.route("/workoutpost")
+def workoutpost():
+    return render_template("workoutpost.html")
+
+@app.route("/kitchenpost")
+def kitchenpost():
+    return render_template("kitchenpost.html")
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
