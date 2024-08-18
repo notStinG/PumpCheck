@@ -81,7 +81,7 @@ def workoutpost():
         user_id = session['user_id'] 
         
         conn = get_db_connection()
-        conn.execute('INSERT INTO workout_posts (title, favourite, routine, user_id, post_time) VALUES (?, ?, ?, ?, ?)', 
+        conn.execute('INSERT INTO workout_posts (title, favourite, routine, user_id) VALUES (?, ?, ?, ?)', 
                      (title, favourite, routine, user_id))
         conn.commit()
         conn.close()
@@ -99,7 +99,7 @@ def kitchenpost():
         user_id = session['user_id']
         
         conn = get_db_connection()
-        conn.execute('INSERT INTO kitchen_posts (recipe_title, ingredients, recipe, user_id, post_time) VALUES (?, ?, ?, ?, ?)', 
+        conn.execute('INSERT INTO kitchen_posts (recipe_title, ingredients, recipe, user_id) VALUES (?, ?, ?, ?)', 
                      (recipe_title, ingredients, recipe, user_id))
         conn.commit()
         conn.close()
