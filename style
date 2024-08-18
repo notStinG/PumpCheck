@@ -1,0 +1,73 @@
+header {
+  text-align: center;
+  background-color: orange;
+  font-family: "Calibri";
+  font-weight: bold;
+  padding: 1px
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+}
+
+.link-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.box {
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 150px;
+  height: 150px;
+  margin: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#feed {
+  background-color: lightblue;
+}
+
+#kitchen {
+  background-color: lightgreen;
+}
+
+.box a {
+  text-decoration: none;
+  color: black;
+}
+
+.link-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.login-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
